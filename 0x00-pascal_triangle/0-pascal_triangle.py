@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module 12-pascal_triangle finds the pascal triangle representation of n rows
+"""Module 0-pascal_triangle creates a pascal triangle of n rows
 """
 
 
@@ -26,7 +26,7 @@ def pascal_triangle(n):
                 # Append 1 at beginning and end of row
                 if num == 0 or num == line:
                     nums.append(1)
-                # Get sum of prev row[[column - 1] + [column]] and append
+                # Get sum of previous row[[column - 1] + [column]] and append
                 else:
                     nums.append(triangle[line - 1][num - 1] +
                                 triangle[line - 1][num])

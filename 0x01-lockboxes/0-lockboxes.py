@@ -28,9 +28,6 @@ def canUnlockAll(boxes):
     # Eliminate spare keys
     keys = set(chest)
 
-    print(chest)
-    print(keys)
-
     # If all keys aare present, return true
     if len(keys) == len(boxes):
         return True

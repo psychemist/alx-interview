@@ -21,9 +21,10 @@ def canUnlockAll(boxes):
         if index == 0:
             chest.extend(box)
         # If key in key chest, open box and collect keys
-        for key in box:
-            if key in chest:
-                chest.extend(boxes[key])
+        if index in chest:
+            for key in box:
+                if key in chest:
+                    chest.extend(boxes[key])
 
     # Eliminate spare keys
     keys = set(chest)

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Module 0-lockboxes contains a function that solves
 the Lockboxes Algorithm problem
 """

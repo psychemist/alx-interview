@@ -13,25 +13,25 @@ def canUnlockAll(boxes):
     Returns:
         True if all lists are reachable, else False
     """
-    length = len(boxes)
-    keys = set()
-    opened_boxes = []
-    i = 0
+    # Initialize chest of keys
+    chest = [0]
 
-    while i < length:
-        oldi = i
-        opened_boxes.append(i)
-        keys.update(boxes[i])
-        for key in keys:
-            if key != 0 and key < length and key not in opened_boxes:
-                i = key
-                break
-        if oldi != i:
-            continue
-        else:
-            break
+    # Iterate over boxes and open first box
+    for index, box in enumerate(boxes):
+        if index == 0:
+            chest.extend(box)
+        # If key in key chest, open box and collect keys
+        for key in box:
+            if key in chest:
+                chest.extend(boxes[key])
 
-    for i in range(length):
-        if i not in opened_boxes and i != 0:
-            return False
-    return True
+    # Eliminate spare keys
+    keys = set(chest)
+
+    print(chest)
+    print(keys)
+
+    # If all keys aare present, return true
+    if len(keys) == len(boxes):
+        return True
+    return False

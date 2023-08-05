@@ -17,15 +17,15 @@ def canUnlockAll(boxes):
     opened_boxes = {0}
 
     # Initialize a stack to perform depth-first search
-    stack = [0]
+    chest = [0]
 
     # Perform depth-first search to open boxes
-    while stack:
-        current_box = stack.pop()
+    while chest:
+        current_box = chest.pop()
         for key in boxes[current_box]:
             if key < len(boxes) and key not in opened_boxes:
                 opened_boxes.add(key)
-                stack.append(key)
+                chest.append(key)
 
-    # Check if all boxes are opened
+    # Check if all boxes are opened and return bool
     return len(opened_boxes) == len(boxes)

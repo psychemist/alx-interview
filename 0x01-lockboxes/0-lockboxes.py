@@ -23,7 +23,7 @@ def canUnlockAll(boxes):
     while stack:
         current_box = stack.pop()
         for key in boxes[current_box]:
-            if key not in opened_boxes:
+            if key < len(boxes) and key not in opened_boxes:
                 opened_boxes.add(key)
                 stack.append(key)
 

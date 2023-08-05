@@ -13,23 +13,19 @@ def canUnlockAll(boxes):
     Returns:
         True if all lists are reachable, else False
     """
-    # Initialize chest of keys
-    chest = [0]
+    # Initialize a set to keep track of opened boxes
+    opened_boxes = {0}
 
-    # Iterate over boxes and open first box
-    for index, box in enumerate(boxes):
-        if index == 0:
-            chest.extend(box)
-        # If key in key chest, open box and collect keys
-        if index in chest:
-            for key in box:
-                if key in chest:
-                    chest.extend(boxes[key])
+    # Initialize a stack to perform depth-first search
+    stack = [0]
 
-    # Eliminate spare keys
-    keys = set(chest)
+    # Perform depth-first search to open boxes
+    while stack:
+        current_box = stack.pop()
+        for key in boxes[current_box]:
+            if key not in opened_boxes:
+                opened_boxes.add(key)
+                stack.append(key)
 
-    # If all keys aare present, return true
-    if len(keys) == len(boxes):
-        return True
-    return False
+    # Check if all boxes are opened
+    return len(opened_boxes) == len(boxes)

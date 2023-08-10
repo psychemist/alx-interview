@@ -14,7 +14,7 @@ def minOperations(n: int) -> int:
         to transform one single character into n number of characters
     """
     if n <= 1:
-        return n
+        return 0
 
     operations = 0
     divisor = 2

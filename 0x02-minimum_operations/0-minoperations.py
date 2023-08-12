@@ -4,7 +4,7 @@
 
 def minOperations(n: int) -> int:
     """Calculates the fewest number of operations needed to result in
-        exactly n H characters in the file
+        exactly n 'H' characters in the file
 
     Argument:
         n (int): number of characters of letter 'H' at the end of operations

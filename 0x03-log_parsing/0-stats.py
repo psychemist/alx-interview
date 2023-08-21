@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Reads stdin line by line and computes log metrics 
+"""Reads stdin line by line and computes log metrics
 """
 
 import re
@@ -36,4 +36,3 @@ finally:
     for key, value in sorted(cache.items()):
         if value != 0:
             print('{}: {}'.format(key, value))
-

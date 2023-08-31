@@ -37,7 +37,7 @@ def parse_logs():
 
                     if match:
                         # Store status code of request in cache
-                        status_code = int(match.group(4))
+                        status_code = match.group(4)
                         cache[status_code] = cache.get(status_code, 0)
                         cache[status_code] += 1
 

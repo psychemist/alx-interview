@@ -23,7 +23,7 @@ try:
         r'(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}|Holberton)\s?-\s?'
         r'(\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}.\d{6}\])\s'
         r'(\"GET /projects/260 HTTP/1.1\")\s'
-        r'(\d{3})\s(\d+)'
+        r'(\d{3}|Hello)\s(\d+)'
     )
 
     for line in sys.stdin:

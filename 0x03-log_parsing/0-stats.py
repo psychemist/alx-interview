@@ -32,7 +32,10 @@ try:
 
         if match:
             # Store status code of request in cache
-            status_code = match.group(4)
+            try:
+                status_code = int(match.group(4))
+            except Exception as err:
+                continue
             cache[status_code] = cache.get(status_code, 0)
             cache[status_code] += 1
 

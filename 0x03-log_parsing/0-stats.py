@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Reads stdin line by line and computes log metrics
+"""0-stats module reads stdin line by line and computes and prints log metrics
 """
 
 import re

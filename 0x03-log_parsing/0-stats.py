@@ -9,12 +9,6 @@ import sys
 def print_logs(total_size, cache):
     """Print total file size, and log status codes and their frequencies
     """
-    try:
-        for code in cache:
-            code = int(code)
-    except:
-        del cache[code]
-
     print(f"File size: {total_size}")
     for code, freq in sorted(cache.items()):
         print("{}: {}".format(code, freq))
@@ -26,10 +20,10 @@ counter = 0
 
 try:
     pattern = (
-        r'(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}|Holberton)\s?-\s?'
+        r'(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})\s-\s'
         r'(\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}.\d{6}\])\s'
         r'(\"GET /projects/260 HTTP/1.1\")\s'
-        r'(\d{3}|Hello)\s(\d+)'
+        r'(\d{3})\s(\d+)'
     )
 
     for line in sys.stdin:
@@ -60,3 +54,4 @@ except Exception as err:
 
 finally:
     print_logs(total_size, cache)
+    print(cache)

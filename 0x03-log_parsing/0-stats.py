@@ -56,7 +56,11 @@ def parse_logs():
             counter = 0
 
     # End infinite loop on keyboard interruption and print logs
-    except KeyboardInterrupt:
+    # except KeyboardInterrupt:
+    except Exception as err:
+        pass
+
+    finally:
         print_logs(total_size, cache)
 
 

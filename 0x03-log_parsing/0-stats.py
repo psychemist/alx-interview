@@ -9,6 +9,12 @@ import sys
 def print_logs(total_size, cache):
     """Print total file size, and log status codes and their frequencies
     """
+    try:
+        for code in cache:
+            code = int(code)
+    except:
+        del cache[code]
+
     print(f"File size: {total_size}")
     for code, freq in sorted(cache.items()):
         print("{}: {}".format(code, freq))
@@ -32,10 +38,7 @@ try:
 
         if match:
             # Store status code of request in cache
-            try:
-                status_code = int(match.group(4))
-            except Exception as err:
-                continue
+            status_code = match.group(4)
             cache[status_code] = cache.get(status_code, 0)
             cache[status_code] += 1
 

@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 import datetime
 import random
 import sys

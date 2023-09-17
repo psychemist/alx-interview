@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" Rotate Matric module
-"""
+""" Rotate Matrix module """
 
 
 def rotate_2d_matrix(matrix):
@@ -8,7 +7,7 @@ def rotate_2d_matrix(matrix):
     Args:
         (matrix): a non-empty, 2-Dimensional matrix
     Returns:
-        (List[List[int]]): matrix rotated 90 degrees clockwise
+        Nothing
     """
     rotated_matrix = []
 

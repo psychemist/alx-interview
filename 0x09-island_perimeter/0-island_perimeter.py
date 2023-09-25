@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-5-island perimeter module calculates perimeter of an island
+0-island perimeter module calculates perimeter of an island
 """
 
 
@@ -24,5 +24,4 @@ def island_perimeter(grid):
                     count -= 2
                 if col + 1 < columns and grid[row][col + 1] == 1:
                     count -= 2
-
     return count

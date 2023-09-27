@@ -18,11 +18,13 @@ def makeChange(coins, total):
     # sort coins list in descending order
     coins.sort(reverse=True)
 
+    # iterate over coins and make change with each coin
     for coin in coins:
         while total >= coin:
             total -= coin
             change += 1
 
+    # return change if total is depleted else return -1
     if total == 0:
         return change
     return -1

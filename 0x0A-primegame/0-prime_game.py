@@ -11,33 +11,58 @@ def isWinner(x, nums):
     Returns:
         (str): name of player that won the most rounds
     """
-    # Using Sieve of Eratosthenes to precompute primes up to 10,000
-    N = 10001
-    sieve = [True] * N
-    sieve[0], sieve[1] = False, False
-    for i in range(2, int(N**0.5) + 1):
-        if sieve[i]:
-            for j in range(i*i, N, i):
-                sieve[j] = False
-    primes = [i for i in range(2, N) if sieve[i]]
+    def is_prime(num):
+        """Check if a number is prime."""
+        if num <= 1:
+            return False
+        if num <= 3:
+            return True
+        if num % 2 == 0 or num % 3 == 0:
+            return False
+        i = 5
+        while i * i <= num:
+            if num % i == 0 or num % (i + 2) == 0:
+                return False
+            i += 6
+        return True
 
-    # Calculate cumulative count of primes up to each number
-    prime_counts = [0] * N
-    count = 0
-    for i in range(2, N):
-        if sieve[i]:
-            count += 1
-        prime_counts[i] = count
+    def game_winner(n):
+        """Return the winner of the game for a given n."""
+        numbers = set(range(2, n + 1))
+        current_player = "Maria"
 
-    # Determine winners for each game
-    Maria_wins, Ben_wins = 0, 0
+        while True:
+            # Find the smallest prime in the set
+            prime = None
+            for num in sorted(numbers):
+                if is_prime(num):
+                    prime = num
+                    break
+            
+            # If no prime is found, the current player loses
+            if prime is None:
+                if current_player == "Maria":
+                    return "Ben"
+                else:
+                    return "Maria"
+            
+            # Remove the prime and its multiples
+            multiples = set(range(prime, n + 1, prime))
+            numbers -= multiples
+            
+            # Switch player
+            current_player = "Maria" if current_player == "Ben" else "Ben"
+
+    # Play the game x times
+    Maria_wins = 0
+    Ben_wins = 0
+
     for n in nums:
-        if prime_counts[n] % 2 == 0:
-            Ben_wins += 1
-        else:
+        if game_winner(n) == "Maria":
             Maria_wins += 1
+        else:
+            Ben_wins += 1
 
-    # Return overall winner
     if Maria_wins > Ben_wins:
         return "Maria"
     elif Ben_wins > Maria_wins:

@@ -1,4 +1,16 @@
+#!/usr/bin/python3
+""" Prime Game algorithm module
+"""
+
+
 def isWinner(x, nums):
+    """Determine winner of a turn-based gam einvlving primes
+    Args:
+        x (int): number of rounds
+        nums (int): array of numbers
+    Returns:
+        (str): name of player that won the most rounds
+    """
     # Using Sieve of Eratosthenes to precompute primes up to 10,000
     N = 10001
     sieve = [True] * N

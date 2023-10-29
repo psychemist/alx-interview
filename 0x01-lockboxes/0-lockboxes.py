@@ -22,6 +22,7 @@ def canUnlockAll(boxes):
     # Perform depth-first search to open boxes
     while chest:
         current_box = chest.pop()
+        # Check if key in each box has been added to set
         for key in boxes[current_box]:
             if key < len(boxes) and key not in opened_boxes:
                 opened_boxes.add(key)

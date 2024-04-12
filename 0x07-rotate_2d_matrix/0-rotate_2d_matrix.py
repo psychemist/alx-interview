@@ -11,12 +11,14 @@ def rotate_2d_matrix(matrix):
     """
     rotated_matrix = []
 
+    # Rotate 2D matrix
     for column in range(len(matrix)):
         matrix_row = []
         for row in range(len(matrix) - 1, -1, -1):
             matrix_row.append(matrix[row][column])
         rotated_matrix.append(matrix_row)
 
+    # Copy rotated matrix into original matrix
     for row in range(len(rotated_matrix)):
         for column in range(len(rotated_matrix[0])):
             matrix[row][column] = rotated_matrix[row][column]
